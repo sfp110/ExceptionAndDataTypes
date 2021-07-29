@@ -3,7 +3,7 @@ using System.IO;
 
 namespace ExceptionTypes
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {

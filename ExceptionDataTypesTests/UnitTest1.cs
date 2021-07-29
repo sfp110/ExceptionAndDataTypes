@@ -1,4 +1,6 @@
 using NUnit.Framework;
+using ExceptionTypes;
+using System;
 
 namespace ExceptionDataTypesTests
 {
@@ -9,10 +11,17 @@ namespace ExceptionDataTypesTests
         {
         }
 
-        [Test]
-        public void Test1()
+        [TestCase(-34)]
+        [TestCase(-1)]
+        [TestCase(1)]
+        public void WhenMarkIsLessThanZero_Grade_ThrowsAnArgumentOutOfRangeException(int grade)
         {
-            Assert.Pass();
+            Assert.That(() => Program.Grade(grade), Throws.TypeOf<ArgumentOutOfRangeException>());
+            // Do this first - () => Program.Grade(grade) 
+
+            // and then compary it to Throws.TypeOf<ArgumentOutOfRangeException>()
+        
+            // () => IS A LAMDA EXPRESSION  
         }
     }
 }
